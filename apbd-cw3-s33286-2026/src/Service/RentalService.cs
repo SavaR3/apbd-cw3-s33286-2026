@@ -5,8 +5,7 @@ using apbd_cw3_s33286_2026.Model;
 public class RentalService
 {
     private readonly Data _db;
-    private const decimal DailyFineRate = 15.50m; // Легко змінити ставку штрафу
-
+    private const decimal DailyFineRate = 5; 
     public RentalService(Data db)
     {
         _db = db;

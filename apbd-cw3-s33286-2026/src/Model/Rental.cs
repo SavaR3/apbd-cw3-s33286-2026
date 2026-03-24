@@ -6,7 +6,7 @@ public class Rental
     public Guid UserId { get; }
     public Guid EquipmentId { get; }
     public DateTime RentedAt { get; }
-    public DateTime DueDate { get; }
+    public DateTime DueDate { get; set; }
     public DateTime? ReturnedAt { get; set; }
     public decimal Fine { get; set; }
 
@@ -25,5 +25,10 @@ public class Rental
     {
         ReturnedAt = DateTime.Now;
         Fine = fine;
+    }
+    
+    public void SimulateOverdue(int days)
+    {
+        DueDate = DateTime.Now.AddDays(-days);
     }
 }

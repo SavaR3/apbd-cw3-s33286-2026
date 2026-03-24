@@ -19,4 +19,10 @@ public class EquipmentService
     
     public IEnumerable<Equipment> GetAvailableEquipment() => 
         _db.EquipmentList.Where(e => e.IsAvailable);
+    
+    public void SetUnavailable(Guid id)
+    {
+        var eq = _db.EquipmentList.FirstOrDefault(e => e.Id == id);
+        if (eq != null) eq.IsAvailable = false;
+    }
 }
